@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../lib/api';
-import { useUIStore } from '../store/uiStore';
 import GlanceCard from '../components/ui/GlanceCard';
 import SectionAccent from '../components/ui/SectionAccent';
 import { AnimeItem, SpotifyPlaylist, Tweet, LatelyEntry, ThinkingEntry, SmallTruth, ShelfBook, GlanceSettings, SpotifyTrack } from '../types';
-import { Sun, Moon, Music, ExternalLink, ChevronDown, ChevronUp, Star, Play } from 'lucide-react';
+import { Music, ExternalLink, ChevronDown, ChevronUp, Star, Play } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
@@ -13,7 +12,6 @@ import { TwitterTweetEmbed } from 'react-twitter-embed';
 const animeCategories = ['all', 'ghibli', 'drama', 'psychological', 'epic', 'slice of life', 'comedy'];
 
 export default function Human() {
-  const { theme, toggleTheme } = useUIStore();
   const [selectedAnimeCat, setSelectedAnimeCat] = useState('all');
   const [expandedThinkingId, setExpandedThinkingId] = useState<string | null>(null);
 
@@ -116,15 +114,6 @@ export default function Human() {
               <div className="w-full h-full bg-gradient-to-tr from-zinc-800 to-zinc-700" />
             )}
             
-            {/* Standalone Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
-            </button>
-
             {/* Avatar */}
             <img
               src="/illustration - about page Background Removed.png"

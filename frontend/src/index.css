@@ -96,3 +96,49 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text4);
 }
+
+#clip-portal {
+  z-index: 9999;
+  position: fixed;
+  bottom: 3rem;
+  left: 3rem;
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  overflow: hidden;
+  pointer-events: none; /* click-through during animation */
+}
+
+#clip-portal > * {
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/* Force Light Mode variables on a subtree */
+.light-theme {
+  --color-bg: #f5f5f3;
+  --color-surface: #ebebeb;
+  --color-surface2: #f0f0f0;
+  --color-border: #d4d4d4;
+  --color-text1: #1a1a1a;
+  --color-text2: #525252;
+  --color-text3: #a3a3a3;
+  --color-text4: #737373;
+}
+
+/* Force Dark Mode variables on a subtree */
+.dark-theme {
+  --color-bg: #09090b;
+  --color-surface: #111113;
+  --color-surface2: #18181b;
+  --color-border: #27272a;
+  --color-text1: #e4e4e7;
+  --color-text2: #a1a1aa;
+  --color-text3: #71717a;
+  --color-text4: #52525b;
+}

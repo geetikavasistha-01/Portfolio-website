@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../lib/api';
-import { useUIStore } from '../store/uiStore';
 import GlanceCard from '../components/ui/GlanceCard';
 import SectionAccent from '../components/ui/SectionAccent';
 import { Project, WorkExperience, BlogPost, GlanceSettings, SpotifyTrack } from '../types';
-import { Sun, Moon, Calendar, Mail, ChevronDown, ChevronUp, Music, ExternalLink } from 'lucide-react';
+import { Calendar, Mail, ChevronDown, ChevronUp, Music, ExternalLink } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { SiMedium, SiHashnode, SiPython, SiFastapi, SiScikitlearn, SiReact, SiTypescript, SiMongodb, SiDocker } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -50,7 +49,6 @@ const toolkitIconMap: { [key: string]: any } = {
 };
 
 export default function Glance() {
-  const { theme, toggleTheme } = useUIStore();
   const [expandedWorkId, setExpandedWorkId] = useState<string | null>(null);
   const [showMoreSocials, setShowMoreSocials] = useState(false);
   const [hoveredContrDay, setHoveredContrDay] = useState<{ count: number; date: string } | null>(null);
@@ -130,15 +128,6 @@ export default function Glance() {
               <div className="w-full h-full bg-gradient-to-tr from-zinc-900 to-zinc-800" />
             )}
             
-            {/* Standalone Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
-            </button>
-
             {/* Avatar overlapping */}
             <img
               src="/illustration - about page Background Removed.png"

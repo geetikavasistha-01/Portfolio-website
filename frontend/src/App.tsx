@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useUIStore } from './store/uiStore';
@@ -31,6 +32,7 @@ const queryClient = new QueryClient();
 
 export default function App() {
   const { initTheme } = useUIStore();
+  const rootRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     initTheme();
@@ -39,7 +41,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <div className="flex flex-col min-h-screen relative bg-bg text-text1">
+        <div ref={rootRef} className="flex flex-col min-h-screen relative bg-bg text-text1">
           {/* Ambient background sparkles */}
           <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
             <SparklesCore
@@ -54,7 +56,7 @@ export default function App() {
           </div>
 
           {/* Navigation bar */}
-          <Navbar />
+          <Navbar rootRef={rootRef} />
 
           {/* Page Routing */}
           <main className="flex-1 w-full flex flex-col">
@@ -84,6 +86,7 @@ export default function App() {
           <CLITerminal />
           <CommandPalette />
           <RecruiterToggle />
+          {createPortal(<div id="clip-portal" />, document.body)}
         </div>
       </BrowserRouter>
     </QueryClientProvider>

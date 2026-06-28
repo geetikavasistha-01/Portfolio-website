@@ -8,6 +8,11 @@ import ClockDropdown from './ClockDropdown';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../../lib/api';
 import { SpotifyTrack } from '../../types';
+import { useDarkModeRipple } from '../../hooks/useDarkModeRipple';
+
+interface NavbarProps {
+  rootRef: React.RefObject<HTMLElement>;
+}
 
 const getFormattedTime = () => {
   return new Intl.DateTimeFormat('en-US', {
@@ -41,7 +46,7 @@ function useOnClickOutside(ref: React.RefObject<HTMLElement | null>, handler: (e
   }, [ref, handler]);
 }
 
-export default function Navbar() {
+export default function Navbar({ rootRef }: NavbarProps) {
   const location = useLocation();
 
   // Exclude main navbar from glance and human pages
@@ -49,7 +54,8 @@ export default function Navbar() {
     return null;
   }
 
-  const { theme, toggleTheme, recruiterMode } = useUIStore();
+  const { theme, recruiterMode } = useUIStore();
+  const { toggle: toggleThemeAnimation } = useDarkModeRipple(rootRef);
   const [time, setTime] = useState(getFormattedTime());
   const [delhiTime, setDelhiTime] = useState(getDelhiTime());
   const [isScrolled, setIsScrolled] = useState(false);
@@ -210,7 +216,7 @@ export default function Navbar() {
 
             {/* Desktop Theme Toggle */}
             <button
-              onClick={toggleTheme}
+              onClick={toggleThemeAnimation}
               className="hidden md:flex w-8 h-8 rounded-full items-center justify-center text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
               aria-label="Toggle Theme"
             >

@@ -2,8 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../../lib/api';
-import { useUIStore } from '../../store/uiStore';
-import { ExternalLink, Sun, Moon, Mail, Calendar } from 'lucide-react';
+import { ExternalLink, Mail, Calendar } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { SpotifyTrack } from '../../types';
 
@@ -13,7 +12,6 @@ interface ClockDropdownProps {
 }
 
 export default function ClockDropdown({ time, onClose }: ClockDropdownProps) {
-  const { theme, toggleTheme } = useUIStore();
 
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -152,15 +150,6 @@ export default function ClockDropdown({ time, onClose }: ClockDropdownProps) {
             <Calendar size={16} />
           </a>
         </div>
-
-        {/* Right Side: Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800 transition-colors cursor-pointer"
-          aria-label="Toggle theme"
-        >
-          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-        </button>
       </div>
 
       {/* iOS sheet handle decoration */}
