@@ -69,7 +69,7 @@ export default function About() {
         <div className="flex flex-col items-center md:items-start md:sticky md:top-24 self-start gap-4">
           <div className="w-[180px] h-[180px] rounded-xl overflow-hidden border border-border bg-surface shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=250&h=250&q=80"
+              src="/pfp.jpg"
               alt="Geetika Vasistha"
               className="w-full h-full object-cover"
             />

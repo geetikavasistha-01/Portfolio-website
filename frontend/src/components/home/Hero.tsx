@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 w-full mb-8">
         <div className="relative w-[72px] h-[72px] rounded-xl overflow-hidden bg-surface2 border border-border shadow-md">
           <img
-            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80"
+            src="/pfp.jpg"
             alt="Geetika Vasistha"
             className="w-full h-full object-cover"
           />
