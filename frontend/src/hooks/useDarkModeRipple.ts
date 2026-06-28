@@ -37,11 +37,6 @@ export function useDarkModeRipple(rootRef: React.RefObject<HTMLElement>) {
     // 4. Restore scroll position on the clone
     clone.scrollTop = scrollRef.current;
 
-    // 5. Counter-invert images and videos inside the clone so they render correctly
-    clone.querySelectorAll("img, video").forEach((el) => {
-      (el as HTMLElement).style.filter = "invert(1)";
-    });
-
     // 6. Set clip portal size and add clone
     clip.style.width = "0";
     clip.style.height = "0";
