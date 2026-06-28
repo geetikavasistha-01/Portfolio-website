@@ -63,31 +63,17 @@ export default function Hero() {
 
       {/* Bio Prose Block */}
       <div className="space-y-6 text-sm text-text2 leading-relaxed max-w-[620px]">
-        <p className="flex flex-wrap items-center gap-2">
-          I am an AI engineer and data scientist building intelligent systems. Currently crafting models with
-          <span className="inline-flex items-center bg-surface2 border border-border text-text2 text-xs px-2 py-0.5 rounded font-mono">
-            🐍 Python
-          </span>
-          ,
-          <span className="inline-flex items-center bg-surface2 border border-border text-text2 text-xs px-2 py-0.5 rounded font-mono">
-            ⚡ FastAPI
-          </span>
-          , and
-          <span className="inline-flex items-center bg-surface2 border border-border text-text2 text-xs px-2 py-0.5 rounded font-mono">
-            📊 scikit-learn
-          </span>
-          .
-        </p>
-
         <p>
-          I focus on machine learning algorithms, distributed pipelines, and climate technology.
-          My background lies at the intersection of robotic vision systems (co-founding Raphson Robotics) and high-throughput data pipelines.
+          I build intelligent systems that combine AI, distributed systems, and backend engineering.
         </p>
-
-        <p className="text-text3">
-          Explore my latest <Link to="/projects" className="underline hover:text-text1">projects</Link>, read my 
-          work <Link to="/work" className="underline hover:text-text1">experience</Link>, or checkout the 
-          technical <Link to="/blog" className="underline hover:text-text1">blog</Link>.
+        <p>
+          Currently crafting applications with Java, Spring Boot, Python, FastAPI, Go, Docker, Kubernetes, AWS, and modern AI frameworks.
+        </p>
+        <p>
+          My interests span Agentic AI, machine learning, large-scale backend systems, and cloud-native infrastructure—building software that's both intelligent and production-ready.
+        </p>
+        <p>
+          Explore my projects, work experience, and technical writing.
         </p>
       </div>
 

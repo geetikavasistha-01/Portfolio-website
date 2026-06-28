@@ -6,20 +6,28 @@ import { AMAEntry } from '../../types';
 
 const defaultAmas: AMAEntry[] = [
   {
-    question: "How do you think about ethical AI versus speed of deployment in climate projects?",
+    question: "What did you actually build during your AI internship — and what was the hardest part?",
     askedBy: 'ANONYMOUS',
-    answer: "In climate tech, correctness is safety. A model predicting emissions or air quality indexes that hallucinates can mislead policy. Perfect is the enemy of raw velocity, but robust cross-validation isn't a speed bump — it's the foundation. Deploy rapidly, but benchmark relentlessly.",
+    answer: "At Havish M Consultancy, I architected a RAG-powered document intelligence platform — LangChain on top of LLaMA and Mistral, with FAISS and Pinecone handling vector retrieval. The semantic chunking pipeline alone cut processing time by 50%. The hardest part wasn't the models; it was designing agentic workflows with ReAct-style tool-calling — web search, code execution, live APIs — so the system could autonomously resolve multi-step queries without hand-holding. That piece improved on-time delivery by 70%, which felt meaningful.",
     pinned: true,
     answered: true,
     date: '2026-06-20T00:00:00.000Z'
   },
   {
-    question: "What's the story behind co-founding Raphson Robotics?",
+    question: "How did Raphsons Robotics start, and what was your role there technically?",
     askedBy: 'ANONYMOUS',
-    answer: "Raphson grew out of SRM Incubator labs. We wanted to build rugged quadrupeds for hazardous pipeline checking. My role was designing low-latency CV models that run on-device. It taught me systems optimization under resource constraints.",
+    answer: "Raphsons grew out of SRM's incubator. We were building rugged quadrupeds for hazardous pipeline inspection — the kind of terrain where you don't want humans. My role was the computer vision side: anomaly detection using TensorFlow and PyTorch, deployed on AWS EC2 with S3 for asset storage. I redesigned the inference pipeline and pushed accuracy up 40% while processing over 1,000 images per hour. I also applied quantization and pruning to make it viable for edge deployment, and built automated model-evaluation harnesses so regressions got caught before they ever shipped.",
     pinned: true,
     answered: true,
     date: '2026-06-10T00:00:00.000Z'
+  },
+  {
+    question: "What did your backend internship at Sacred Gurukul look like day-to-day?",
+    askedBy: 'ANONYMOUS',
+    answer: "It was a full-stack backend role — I built the e-commerce backend on Django REST with MongoDB, handling JWT auth and payment integration from scratch. The interesting addition was an LLM-powered recommendation agent that used vector similarity search over a user's browsing history to surface products. On the DevOps side, I set up Docker and GitHub Actions for CI/CD, which meant releases were clean and repeatable. Cross-browser frontend compatibility was also part of the brief, so it wasn't purely backend — it was end-to-end ownership.",
+    pinned: true,
+    answered: true,
+    date: '2026-06-01T00:00:00.000Z'
   }
 ];
 
@@ -27,12 +35,7 @@ export default function AMAPreview() {
   const { data: amas } = useQuery<AMAEntry[]>({
     queryKey: ['amas-pinned'],
     queryFn: async () => {
-      try {
-        const res = await api.get('/ama?pinned=true');
-        return res.data;
-      } catch {
-        return defaultAmas;
-      }
+      return defaultAmas;
     },
     initialData: defaultAmas
   });

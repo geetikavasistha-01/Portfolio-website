@@ -118,7 +118,7 @@ export default function Glance() {
 
   return (
     <div className="min-h-screen bg-bg text-text1 py-12 px-4 select-none relative">
-      <div className="max-w-[900px] mx-auto flex flex-col">
+      <div className="max-w-[900px] mx-auto flex flex-col gap-4">
         
         {/* CARD 1: HERO */}
         <GlanceCard className="relative overflow-visible p-0 pb-6 border-zinc-800/40">
@@ -154,11 +154,11 @@ export default function Glance() {
               <span className="text-sm text-text3 ml-2">@geekykunoichi</span>
             </div>
 
-            <p className="text-sm text-text3 mt-1 font-medium">
+            <p className="text-sm text-text2 mt-1 font-medium">
               ML Engineer · Data Scientist · Builder
             </p>
 
-            <p className="text-sm text-zinc-300 mt-3 leading-relaxed max-w-[700px]">
+            <p className="text-sm text-text2 mt-3 leading-relaxed max-w-[700px]">
               {settings?.bioTech || 'Building quadruped navigation controllers and robust ML pipelines. Driven by data systems, latency tuning, and clean software architecture.'}
             </p>
 
@@ -184,7 +184,7 @@ export default function Glance() {
 
             {/* Social pills */}
             <div className="mt-6">
-              <span className="text-sm text-text3">
+              <span className="text-sm text-text2">
                 Find me on the <strong className="text-text1 font-semibold">internet</strong>
               </span>
               <div className="flex flex-wrap gap-2 mt-3">
@@ -259,7 +259,7 @@ export default function Glance() {
 
             {/* Listening widget */}
             <div className="mt-6">
-              <span className="text-sm text-text3">
+              <span className="text-sm text-text2">
                 Recently <strong className="text-text1 font-semibold">listening</strong>
               </span>
               <div className="bg-surface2 rounded-xl p-4 flex items-center gap-3 mt-3 border border-border/40 relative overflow-hidden max-w-[450px]">
@@ -278,12 +278,12 @@ export default function Glance() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
                     <Music size={11} className={spotify?.isPlaying ? "text-green-400" : "text-text3"} />
-                    <span className="text-[10px] tracking-wider uppercase text-zinc-500 font-semibold">
+                    <span className="text-[10px] tracking-wider uppercase text-text2 font-semibold">
                       {spotify?.isPlaying ? 'Now Playing' : 'Last Played'}
                     </span>
                   </div>
                   <h4 className="text-sm font-semibold text-text1 truncate mt-0.5">{spotify?.title || 'White Ferrari'}</h4>
-                  <p className="text-xs text-text3 truncate">{spotify?.artist || 'Frank Ocean'}</p>
+                  <p className="text-xs text-text2 truncate">{spotify?.artist || 'Frank Ocean'}</p>
                 </div>
                 <a
                   href={spotify?.spotifyUrl || spotify?.url || 'https://spotify.com'}
@@ -298,7 +298,7 @@ export default function Glance() {
 
             {/* Toolkit */}
             <div className="mt-6">
-              <span className="text-sm text-text3">
+              <span className="text-sm text-text2">
                 My everyday <strong className="text-text1 font-semibold">toolkit</strong>
               </span>
               <div className="flex flex-wrap gap-2 mt-3">
@@ -321,10 +321,10 @@ export default function Glance() {
         </GlanceCard>
 
         {/* CARD 2: CONTRIBUTIONS */}
-        <GlanceCard className="border-zinc-800/40">
+        <GlanceCard className="border-zinc-800/40 overflow-hidden">
           <div className="flex items-center gap-2 mb-4 text-base font-semibold text-text1">
             <FaGithub size={16} />
-            <span>Contributions @geekykunoichi</span>
+            <span>Commits @geekykunoichi</span>
           </div>
 
           <div className="overflow-x-auto w-full pb-2">
@@ -347,9 +347,9 @@ export default function Glance() {
             </div>
           </div>
 
-          <div className="flex justify-between items-center text-[10px] text-text3 font-mono mt-3">
+          <div className="flex justify-between items-center text-[10px] text-text2 font-mono mt-3">
             <div>
-              {contributions.totalContributions} contributions in the last year
+              {contributions.totalContributions} commits in the last year
             </div>
             <div className="flex items-center gap-1">
               <span>Less</span>
@@ -364,13 +364,13 @@ export default function Glance() {
 
           {hoveredContrDay && (
             <div className="absolute bg-surface2 border border-border text-[10px] font-mono text-text1 px-2.5 py-1 rounded-md shadow-md z-20 mt-1">
-              {hoveredContrDay.count} contribution{hoveredContrDay.count !== 1 && 's'} · {formatDate(hoveredContrDay.date)}
+              {hoveredContrDay.count} commit{hoveredContrDay.count !== 1 && 's'} · {formatDate(hoveredContrDay.date)}
             </div>
           )}
         </GlanceCard>
 
         {/* CARD 3: WHERE I'VE WORKED */}
-        <GlanceCard className="border-zinc-800/40">
+        <GlanceCard className="border-zinc-800/40 overflow-hidden">
           <SectionAccent title="Where I've worked" color="blue" />
 
           <div className="flex flex-col gap-2 mt-4">
@@ -388,14 +388,14 @@ export default function Glance() {
                   >
                     <div>
                       <span className="text-base font-semibold text-text1">{exp.company}</span>
-                      <span className="text-[10px] border border-zinc-700 rounded-full px-2.5 py-0.5 text-text3 ml-2 capitalize font-mono">
+                      <span className="text-[10px] border border-zinc-700 rounded-full px-2.5 py-0.5 text-text2 ml-2 capitalize font-mono">
                         {exp.type}
                       </span>
                     </div>
                     <div className="flex items-center">
                       <div className="text-right hidden sm:block mr-2">
-                        <span className="text-sm text-text3">{dateString}</span>
-                        <div className="text-[10px] text-text4">{exp.location}</div>
+                        <span className="text-sm text-text2">{dateString}</span>
+                        <div className="text-[10px] text-text3">{exp.location}</div>
                       </div>
                       {isExpanded ? <ChevronUp size={16} className="text-text3" /> : <ChevronDown size={16} className="text-text3" />}
                     </div>
@@ -414,7 +414,7 @@ export default function Glance() {
                           <ul className="space-y-2 mt-3 text-xs leading-relaxed text-text2">
                             {exp.bullets.map((bullet, idx) => (
                               <li key={idx} className="flex gap-2">
-                                <span className="text-text3">—</span>
+                                <span className="text-text2">—</span>
                                 <span>{bullet}</span>
                               </li>
                             ))}
@@ -444,7 +444,7 @@ export default function Glance() {
         </GlanceCard>
 
         {/* CARD 4: THINGS I'VE BUILT */}
-        <GlanceCard className="border-zinc-800/40">
+        <GlanceCard className="border-zinc-800/40 overflow-hidden">
           <SectionAccent title="Things I've built" color="green" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
@@ -460,7 +460,7 @@ export default function Glance() {
                 <div className="p-4 flex flex-col justify-between flex-1">
                   <div>
                     <h3 className="text-base font-mono font-bold text-text1">{project.title}</h3>
-                    <p className="text-xs text-text3 mt-1 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-text2 mt-1 leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
                   </div>
@@ -474,7 +474,7 @@ export default function Glance() {
                     </a>
                     <div className="flex gap-1">
                       {project.tags.slice(0, 2).map((tag) => (
-                        <span key={tag} className="text-[8px] bg-zinc-800 border border-zinc-700/50 rounded px-1.5 py-0.5 text-zinc-400 font-mono">
+                        <span key={tag} className="text-[8px] bg-zinc-800 border border-zinc-700/50 rounded px-1.5 py-0.5 text-text2 font-mono">
                           {tag}
                         </span>
                       ))}
@@ -487,7 +487,7 @@ export default function Glance() {
         </GlanceCard>
 
         {/* CARD 5: THOUGHTS & WRITING */}
-        <GlanceCard className="border-zinc-800/40">
+        <GlanceCard className="border-zinc-800/40 overflow-hidden">
           <SectionAccent title="Thoughts & Writing" color="purple" />
 
           <div className="flex flex-col mt-4">
@@ -506,14 +506,14 @@ export default function Glance() {
                   <h4 className="text-sm font-semibold text-text1 leading-snug group-hover:text-purple-400 transition-colors">
                     {post.title}
                   </h4>
-                  <div className="text-[10px] text-text3 mt-1 flex items-center gap-1.5 font-mono">
+                  <div className="text-[10px] text-text2 mt-1 flex items-center gap-1.5 font-mono">
                     <span>{post.createdAt ? new Date(post.createdAt).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) : 'June 19, 2026'}</span>
                     <span>·</span>
                     <span>🕐 {post.readTime || 5} min</span>
                   </div>
                   <div className="flex flex-wrap gap-1 mt-2">
                     {post.tags.map((tag) => (
-                      <span key={tag} className="text-[8px] border border-zinc-800 rounded-full px-2 py-0.5 text-text3 uppercase font-mono">
+                      <span key={tag} className="text-[8px] border border-zinc-800 rounded-full px-2 py-0.5 text-text2 uppercase font-mono">
                         {tag}
                       </span>
                     ))}
@@ -542,7 +542,7 @@ export default function Glance() {
         </div>
 
         {/* QUOTE */}
-        <div className="text-center italic font-display text-text3 text-lg">
+        <div className="text-center italic font-display text-text2 text-lg">
           "{settings?.latestQuoteTech || 'precision finds pattern'}"
         </div>
 
@@ -559,7 +559,7 @@ export default function Glance() {
           </a>
           <a
             href="/human"
-            className="text-xs text-text3 hover:text-text1 mt-3 transition-colors underline"
+            className="text-xs text-text2 hover:text-text1 mt-3 transition-colors underline"
           >
             or see the non-code side ↗
           </a>

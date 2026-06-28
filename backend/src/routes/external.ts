@@ -59,10 +59,10 @@ router.get('/spotify/now-playing', async (req, res) => {
   const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = process.env;
 
   const fallbackData = {
-    title: 'White Ferrari',
-    artist: 'Frank Ocean',
-    albumArt: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=150&h=150&q=80',
-    spotifyUrl: 'https://open.spotify.com/track/2LMkwUjfZ4e6JTYYqyqu23',
+    title: 'The Fate of Ophelia',
+    artist: 'Taylor Swift',
+    albumArt: 'https://i.scdn.co/image/ab67616d0000b273d7812467811a7da6e6a44902',
+    spotifyUrl: 'https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W',
     isPlaying: false,
     lastPlayedAt: new Date(Date.now() - 3600000).toISOString() // 1 hour ago
   };

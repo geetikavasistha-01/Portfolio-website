@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageWrapper from '../components/layout/PageWrapper';
 import Hero from '../components/home/Hero';
 import CurrentlyBuilding from '../components/home/CurrentlyBuilding';
@@ -71,6 +72,18 @@ export default function Home() {
         </>
       )}
 
+      {/* 11. Anime / Recreation shelf - Hidden in recruiter mode */}
+      {!recruiterMode && (
+        <>
+          <SectionHeader
+            label="on loop"
+            rightElement={<span>recreations</span>}
+            subtext="What I keep coming back to when the monitors go dark."
+          />
+          <OnLoop />
+        </>
+      )}
+
       {/* 8. Latest Article */}
       <SectionHeader
         label="writing"
@@ -88,21 +101,9 @@ export default function Home() {
       {/* 10. AMA Preview */}
       <SectionHeader
         label="questions & answers"
-        rightElement={<span>ama preview</span>}
+        rightElement={<Link to="/ama" className="text-text3 hover:text-text1 transition-colors">ama preview</Link>}
       />
       <AMAPreview />
-
-      {/* 11. Anime / Recreation shelf - Hidden in recruiter mode */}
-      {!recruiterMode && (
-        <>
-          <SectionHeader
-            label="on loop"
-            rightElement={<span>recreations</span>}
-            subtext="What I keep coming back to when the monitors go dark."
-          />
-          <OnLoop />
-        </>
-      )}
     </PageWrapper>
   );
 }
